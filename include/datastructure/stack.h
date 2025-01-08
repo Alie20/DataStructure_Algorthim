@@ -4,46 +4,105 @@
 #include <iostream>
 #include <stdexcept>
 
-namespace datastructure {
+/*************************************************************************
+** File       : stack.h                                                   *
+** Project    : Data_structure and Algorithim                             *
+** Author     : Alie Eldeen                                               *
+** Date       : 08.01.25                                                  *
+** Email      : alieldeen81@gmail.com                                     *
+**                                                                        *                                                                          *    
+** This file contains the definition of the Stack class, which implements * 
+** a basic stack data structure using a dynamic array. The stack supports * 
+** common operations such as push, pop, peek, and change,                 *
+** as well as utility methods for checking if the stack is empty or full. *
+**                                                                        *
+**************************************************************************/
 
-class Stack
+namespace datastructure 
 {
-    private:
-        int * arr;          //Dynamic array for storing the elements
-        int capacity ;      //The size of array
-        int top ;           // The Index of top element in the stack
-    public:
-        //Constructor
-        Stack(int size);
-        
-        //Destructor
-        ~Stack();
 
-        //Check if the stack is Empty
-        bool IsEmpty();
+    class Stack
+    {
+        private:
+            int * arr;          //Dynamic array for storing the elements
+            int capacity ;      //The size of array
+            int top ;           // The Index of top element in the stack
+        public:
+            // Constructor to initialize the stack with a given size
+            Stack(int size);
+            
+            //Destructor to release allocated memory
+            ~Stack();
 
-        //Check if the stack is full
-        bool IsFull();
+            /***********************************************
+            * brief : Check the stack is empty or not      *
+            * Arguments : None                             *
+            * return : true  : if it is Empty.             *
+            *        : false : if it is not Empty.         *
+            ***********************************************/
+            bool IsEmpty();
 
-        //Push an element onto the stack
-        void push(int value);
 
-        //Pop an element from the stack
-        int pop();
+            /***********************************************
+            * brief : Check the stack is Full or not       *
+            * Arguments : None                             *
+            * return : true  : if it is full.              *
+            *        : false : if it is not full.          *
+            ***********************************************/
+            bool IsFull();
 
-        //Get the current size of the stack
-        int count();
 
-        //Access the item at the i position
-        int peek(int index);
+            /************************************************************************************
+            * brief : Push the value onto stack                                                 *
+            * Arguments : The integer value to be added to the top of the stack.                *
+            * throws std::overflow_error if the stack is full.                                  *
+            * return : None                                                                     *
+            *************************************************************************************/
+            void push(int value);
 
-        //Change the item at the i position
-        void change(int index, int value);
 
-        //Display the content of the stack
-        void display();
-        
+            /**************************************************************************************
+            * brief : pop an element from the stack                                               *
+            * Arguments : None                                                                    *
+            * throws std::underflow_error if the stack is empty.                                  *
+            * return : The integer value that was at the top of the stack.                        *                                                                           *
+            **************************************************************************************/
+            int pop();
 
-};
+
+            /**************************************************************************************
+            * brief : calculate the total number of elements in the stack                         *
+            * Arguments : None                                                                    *
+            * return : the total number of elements in the stack                                  *                                                                           *
+            **************************************************************************************/
+            int count();
+
+
+            /*****************************************************************************************
+            * brief : Accesses the element at the specified index in the stack without modifying it. *                                                                            *
+            * Arguments : Index The position (0-based) of the elemennt to access in the stack.       *
+            *             Index 0 corresponds to the bottom of the stack and top corresponds         *
+            *             to the top of the stack                                                    *
+            * return : The integer value at the specified index in the stack.                        *                                                                              *
+            ******************************************************************************************/
+            int peek(int index);
+
+
+            /********************************************************************************************
+            * brief : Change the value of the specific index with the new value.                        *                                                                            *
+            * Arguments : index : Index The position (0-based) of the elemennt to access in the stack.  *
+            *           : value : The new value that you want to add                                    *
+            * return : The integer value at the specified index in the stack.                           *                                                                              *
+            *********************************************************************************************/
+            void change(int index, int value);
+
+
+            /********************************************************************************************
+            * brief : Show the content of the stack                            .                         *                                                                            *
+            * Arguments : None                                                                           *
+            * return : None                           *                                                  * 
+            *********************************************************************************************/
+            void display();
+    };
 }
 #endif

@@ -1,6 +1,6 @@
 # DataStructure and Algorithm Repository
 
-This repository is dedicated to implementing various data structures and algorithms. We start with the implementation of a **Stack**.
+This repository is dedicated to implementing various data structures and algorithms. We start with the implementation of a **Stack**,**Queue**.
 
 ## Stack
 
@@ -19,6 +19,25 @@ A **Stack** is a linear data structure that follows the Last In First Out (LIFO)
   - `IsFull()`: Checks if the stack is full.
   - `count()`: Returns the number of elements in the stack.
 
+## Queue
+
+### Definition
+A **Queue** is a linear data structure that follows the First In First Out (FIFO) principle. The first element added is the first one to be removed. It is widely used in scenarios like task scheduling, resource management, and breadth-first traversal.
+
+### Features
+- **Dynamic Array-Based Implementation**: Efficient memory allocation for queue operations.
+- **Properties**:
+  - **Front**: Points to the frontmost element in the queue.
+  - **Rear**: Points to the last element in the queue.
+  - **Size**: Tracks the number of elements in the queue.
+  - **Capacity**: The maximum number of elements the queue can hold.
+- **Basic Operations**:
+  - `enqueue(int value)`: Adds an element to the rear of the queue.
+  - `dequeue()`: Removes and returns the front element of the queue.
+  - `IsEmpty()`: Checks if the queue is empty.
+  - `IsFull()`: Checks if the queue is full.
+  - `count()`: Returns the number of elements in the queue.
+
 ## Getting Started
 
 ### Prerequisites
@@ -36,18 +55,20 @@ git clone https://github.com/Alie20/DataStructure_Algorthim.git
 ### File Structure
 
 ```
-Stack/
+DataStructure/
 ├── include/
 │   └── datastructure/
-│       └── Stack.h
+│       ├── Stack.h
+│       └── Queue.h
 ├── src/
-│   └── stack.cpp
+│   ├── stack.cpp
+│   └── queue.cpp
 └── README.md
 ```
 
 
 ## API Reference
-
+## Stack
 ### Constructor
 
 ```cpp
@@ -145,15 +166,85 @@ void display();
 
 - **Description**: Displays all elements in the stack from bottom to top.
 
+## Queue
+
+#### Constructor
+
+```cpp
+Queue(int size);
+```
+
+- **Description**: Initializes a queue with a specified size.
+- **Parameters**:
+  - `size`: The initial capacity of the queue.
+
+#### Destructor
+
+```cpp
+~Queue();
+```
+
+- **Description**: Frees the dynamically allocated memory used by the queue.
+
+#### IsEmpty
+
+```cpp
+bool IsEmpty();
+```
+
+- **Description**: Checks if the queue is empty.
+- **Returns**: `true` if the queue is empty; otherwise, `false`.
+
+#### IsFull
+
+```cpp
+bool IsFull();
+```
+
+- **Description**: Checks if the queue is full.
+- **Returns**: `true` if the queue is full; otherwise, `false`.
+
+#### enqueue
+
+```cpp
+void enqueue(int value);
+```
+
+- **Description**: Adds an element to the rear of the queue.
+- **Parameters**:
+  - `value`: The integer value to enqueue.
+- **Exceptions**: Throws `std::overflow_error` if the queue is full.
+
+#### dequeue
+
+```cpp
+int dequeue();
+```
+
+- **Description**: Removes and returns the front element of the queue.
+- **Returns**: The integer value of the front element.
+- **Exceptions**: Throws `std::underflow_error` if the queue is empty.
+
+#### count
+
+```cpp
+int count();
+```
+
+- **Description**: Returns the current number of elements in the queue.
+
+
 ## Example Usage
 
 ### Sample Code
 
 ```cpp
 #include "datastructure/Stack.h"
+#include "datastructure/Queue.h"
 #include <iostream>
 
 int main() {
+    // Stack example
     datastructure::Stack stack(5);
 
     stack.push(10);
@@ -169,6 +260,21 @@ int main() {
     std::cout << "Modified Stack contents:" << std::endl;
     stack.display();
 
+    // Queue example
+    datastructure::Queue queue(5);
+
+    queue.enqueue(10);
+    queue.enqueue(20);
+    queue.enqueue(30);
+
+    std::cout << "No of elements in queue "queue.count() <<std::endl ;
+    
+    std::cout << queue.deque() <<std::endl;
+    std::cout << queue.deque() <<std::endl;
+    std::cout << queue.deque() <<std::endl;
+
+    std::cout << "No of elements in queue "queue.count() <<std::endl ;
+
     return 0;
 }
 ```
@@ -181,6 +287,11 @@ Stack contents:
 Top element: 30
 Modified Stack contents:
 99 20
+No of elements in queue 3
+10 
+20
+30
+No of elements in queue 0
 ```
 
 

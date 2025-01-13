@@ -111,4 +111,11 @@ namespace datastructure
 
         }
     }
+    void Queue::display()
+    {
+        for(int i = 0 ;i < capacity ; i ++ )
+        {
+            std::cout <<arr[i] << " ";
+        }
+    }
 }

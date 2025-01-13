@@ -233,6 +233,11 @@ int count();
 
 - **Description**: Returns the current number of elements in the queue.
 
+#### Display
+```cpp
+void display();
+```
+- **Description**: Show the all contents of the queue.
 
 ## Example Usage
 

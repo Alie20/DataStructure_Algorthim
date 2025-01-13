@@ -24,6 +24,8 @@ A **Stack** is a linear data structure that follows the Last In First Out (LIFO)
 ### Definition
 A **Queue** is a linear data structure that follows the First In First Out (FIFO) principle. The first element added is the first one to be removed. It is widely used in scenarios like task scheduling, resource management, and breadth-first traversal.
 
+A **circular_queue** is a linear data structure that overcomes the limitations of a standard linear queue by utilizing space more efficiently. Unlike a linear queue, where the rear pointer can only move in one direction, the rear of a circular queue wraps around to the front when it reaches the end of the array.
+
 ### Features
 - **Dynamic Array-Based Implementation**: Efficient memory allocation for queue operations.
 - **Properties**:
@@ -58,11 +60,13 @@ git clone https://github.com/Alie20/DataStructure_Algorthim.git
 DataStructure/
 ├── include/
 │   └── datastructure/
-│       ├── Stack.h
-│       └── Queue.h
+│       ├── stack.h
+│       └── queue.h
+│       └── circular_queue.h
 ├── src/
 │   ├── stack.cpp
 │   └── queue.cpp
+│   └── circular_queue.cpp
 └── README.md
 ```
 
@@ -244,8 +248,9 @@ void display();
 ### Sample Code
 
 ```cpp
-#include "datastructure/Stack.h"
-#include "datastructure/Queue.h"
+#include "datastructure/stack.h"
+#include "datastructure/queue.h"
+#include "datastructure/ciruclar_queue.h
 #include <iostream>
 
 int main() {
@@ -266,6 +271,7 @@ int main() {
     stack.display();
 
     // Queue example
+    // You can use queue or circular queue (Circular_queue)
     datastructure::Queue queue(5);
 
     queue.enqueue(10);

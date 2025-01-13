@@ -39,6 +39,8 @@ A **circular_queue** is a linear data structure that overcomes the limitations o
   - `IsEmpty()`: Checks if the queue is empty.
   - `IsFull()`: Checks if the queue is full.
   - `count()`: Returns the number of elements in the queue.
+  - `display()`: Displays all elements of the queue.
+
 
 ## Getting Started
 
